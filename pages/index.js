@@ -3,8 +3,8 @@ import { useContext } from "react";
 import { GlobalContext } from "@utils/GlobalContext";
 
 export default function Home() {
-  const { darkMode, setDarkMode } = useContext(GlobalContext);
-
+  const [darkMode, setDarkMode] = useContext(GlobalContext);
+  
   return (
     <div>
       <Head>

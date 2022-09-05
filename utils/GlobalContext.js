@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-export const GlobalContext = createContext();
+export const GlobalContext = createContext("");
 
 export function GlobalProvider({ children }) {
 
@@ -25,9 +25,7 @@ export function GlobalProvider({ children }) {
   }, [darkMode]);
 
   return (
-    <GlobalContext.Provider value={
-      { darkMode, setDarkMode }
-    }>
+    <GlobalContext.Provider value={[darkMode, setDarkMode]}>
       {children}
     </GlobalContext.Provider>
   );
