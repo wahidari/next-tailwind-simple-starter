@@ -1,6 +1,10 @@
 {
   "name": "next-tailwind-simple-starter",
   "version": "0.1.0",
+  "author": {
+    "name": "wahidari",
+    "url": "http://github.com/wahidari"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
