@@ -1,10 +1,19 @@
-import Head from 'next/head'
-import { useContext } from "react";
-import { GlobalContext } from "@utils/GlobalContext";
+import Head from 'next/head';
+// import { useContext } from "react";
+// import { GlobalContext } from "@utils/GlobalContext";
+import { useTheme } from 'next-themes';
+import ThemeChanger from '@components/ThemeChanger';
 
 export default function Home() {
-  const [darkMode, setDarkMode] = useContext(GlobalContext);
-  
+  // const [darkMode, setDarkMode] = useContext(GlobalContext);
+  const { theme, setTheme } = useTheme()
+
+  const handleDarkMode = () => {
+    if (theme == 'light') {
+      setTheme('dark')
+    } else setTheme('light')
+  };
+
   return (
     <div>
       <Head>
@@ -20,8 +29,9 @@ export default function Home() {
             {' '} + {' '}
             <a href="https://tailwindcss.com" className="text-cyan-600 hover:text-cyan-700 transition-all">Tailwind CSS</a>
           </h1>
-          <div className="flex justify-center">
-            <div onClick={() => setDarkMode(!darkMode)} className="transition-all cursor-pointer w-12 h-7 dark:bg-blue-500 bg-neutral-200 rounded-full relative">
+          <div className="flex justify-center gap-4">
+            <ThemeChanger />
+            <div onClick={handleDarkMode} className="transition-all cursor-pointer w-12 h-7 dark:bg-blue-500 bg-neutral-200 rounded-full relative">
               <div className="h-5 w-5 bg-white rounded-full absolute top-1 transition-all dark:left-6 left-1"></div>
             </div>
           </div>
