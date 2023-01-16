@@ -1,18 +1,11 @@
 import Head from 'next/head';
 // import { useContext } from "react";
 // import { GlobalContext } from "@utils/GlobalContext";
-import { useTheme } from 'next-themes';
 import ThemeChanger from '@components/ThemeChanger';
+import Navbar from '@components/Navbar';
 
 export default function Home() {
   // const [darkMode, setDarkMode] = useContext(GlobalContext);
-  const { theme, setTheme } = useTheme()
-
-  const handleDarkMode = () => {
-    if (theme == 'light') {
-      setTheme('dark')
-    } else setTheme('light')
-  };
 
   return (
     <div>
@@ -22,18 +15,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar />
+
       <main className="dark:bg-neutral-900 h-screen flex items-center justify-center flex-wrap">
         <div>
-          <h1 className="text-4xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-3">
+          <h1 className="text-4xl text-neutral-800 dark:text-white font-semibold tracking-wide mb-4">
             <a href="https://nextjs.org" className="text-sky-600 hover:text-sky-700 transition-all">Next.js</a>
             {' '} + {' '}
             <a href="https://tailwindcss.com" className="text-cyan-600 hover:text-cyan-700 transition-all">Tailwind CSS</a>
           </h1>
           <div className="flex justify-center gap-4">
             <ThemeChanger />
-            <div onClick={handleDarkMode} className="transition-all cursor-pointer w-12 h-7 dark:bg-blue-500 bg-neutral-200 rounded-full relative">
-              <div className="h-5 w-5 bg-white rounded-full absolute top-1 transition-all dark:left-6 left-1"></div>
-            </div>
           </div>
         </div>
       </main>
